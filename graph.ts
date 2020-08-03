@@ -21,8 +21,8 @@ const isSeller = (name: string): boolean => {
 // Breadth-first search
 const search = (graph: Graph, name: string) => {
   // Instantiate collections for queue and searched
-  const queue = [],
-    searched = new Set();
+  const queue: Array<string> = [],
+    searched: Set<string> = new Set();
 
   // Push start node into queue
   queue.push(name);
