@@ -1,0 +1,19 @@
+name: Tests
+on: [push, pull_request]
+jobs:
+  test:
+    name: Deno ${{ matrix.deno }} on ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        deno: ["v1.x"]
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Use Deno ${{ matrix.deno }}
+        uses: denolib/setup-deno@v2
+        with:
+          deno-version: ${{ matrix.deno }}
+      - name: Test algorithms
+        run: deno test
