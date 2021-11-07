@@ -24,13 +24,13 @@ export const binarySearch = (
   item: number,
 ): number | null => {
   // Set boundary as start and end of collection
-  let low: number = 0,
+  let low = 0,
     high: number = collection.length - 1;
 
   // Loop over potential candidates
   while (low <= high) {
     // Choose middle of collection as guess candidate
-    let middle: number = Math.trunc((low + high) / 2),
+    const middle: number = Math.trunc((low + high) / 2),
       guess: number = collection[middle];
 
     // If we guessed correctly, return index of guess
