@@ -1,8 +1,6 @@
 import { filledArray } from "../utilities.ts";
 import { binarySearch, stupidSearch } from "../searching.ts";
-import {
-  assertEquals,
-} from "https://deno.land/std@0.63.0/testing/asserts.ts";
+import { assertEquals } from "https://deno.land/std@0.113.0/testing/asserts.ts";
 
 const numbers = filledArray(1000),
   find = 500,

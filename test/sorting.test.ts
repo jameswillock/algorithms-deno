@@ -1,15 +1,10 @@
-import {
-  findSmallest,
-  selectionSort,
-  shuffle,
-  quickSort,
-} from "../sorting.ts";
+import { findSmallest, quickSort, selectionSort, shuffle } from "../sorting.ts";
 
 import {
+  assertArrayIncludes,
   assertEquals,
   assertNotEquals,
-  assertArrayContains,
-} from "https://deno.land/std@0.63.0/testing/asserts.ts";
+} from "https://deno.land/std@0.113.0/testing/asserts.ts";
 
 const numbers = [4, 7, 2, 4, 10, 7, 3, 2, 5, 7];
 const sorted = [2, 2, 3, 4, 4, 5, 7, 7, 7, 10];
@@ -31,5 +26,5 @@ Deno.test("shuffle: shuffled the collection", () => {
 });
 
 Deno.test("shuffle: contains all the original members", () => {
-  assertArrayContains(shuffle(numbers), numbers);
+  assertArrayIncludes(shuffle(numbers), numbers);
 });

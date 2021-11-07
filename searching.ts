@@ -1,7 +1,10 @@
 // Stupid search will iterate through each element and return
 // when it finds a match
 // O(n) - linear time
-export const stupidSearch = (collection: Array<number>, item: number): number | null => {
+export const stupidSearch = (
+  collection: Array<number>,
+  item: number,
+): number | null => {
   for (let index = 0; index < collection.length; index++) {
     if (collection[index] === item) {
       return index;
@@ -16,7 +19,10 @@ export const stupidSearch = (collection: Array<number>, item: number): number | 
 // through it more efficiently by halving the size of each
 // search boundary on each loop
 // O(log n) - logaritmic time
-export const binarySearch = (collection: Array<number>, item: number): number | null => {
+export const binarySearch = (
+  collection: Array<number>,
+  item: number,
+): number | null => {
   // Set boundary as start and end of collection
   let low: number = 0,
     high: number = collection.length - 1;

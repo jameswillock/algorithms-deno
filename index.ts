@@ -1,11 +1,11 @@
 import { filledArray } from "./utilities.ts";
-import { shuffle, findSmallest, selectionSort, quickSort } from "./sorting.ts";
-import { stupidSearch, binarySearch } from "./searching.ts";
+import { findSmallest, quickSort, selectionSort, shuffle } from "./sorting.ts";
+import { binarySearch, stupidSearch } from "./searching.ts";
 import {
-  recursiveSumArray,
-  recursiveLength,
   nonRecursiveLength,
   nonRecursiveSumArray,
+  recursiveLength,
+  recursiveSumArray,
 } from "./recursion.ts";
 
 /////////////////

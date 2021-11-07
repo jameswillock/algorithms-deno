@@ -5,9 +5,7 @@ import {
   recursiveSumArray,
 } from "../recursion.ts";
 
-import {
-  assertEquals,
-} from "https://deno.land/std@0.63.0/testing/asserts.ts";
+import { assertEquals } from "https://deno.land/std@0.113.0/testing/asserts.ts";
 
 Deno.test("recursiveLength: when collection is empty, return zero", () => {
   assertEquals(recursiveLength([]), 0);
