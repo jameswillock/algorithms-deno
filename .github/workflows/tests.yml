@@ -17,13 +17,15 @@ jobs:
           deno-version: ${{ matrix.deno }}
       - name: Test algorithms
         run: deno test
-      - name: Coveralls (parallel)
-        uses: coverallsapp/github-action@v1.1.1
-        env:
-          COVERALLS_FLAG_NAME: run-${{ matrix.test_number }}
+      - name: Generate coverage report
+        if: ${{ matrix.os == 'ubuntu-latest' }}
+        run: deno coverage --lcov cov > cov.lcov
+      - name: Upload coverage report
+        if: ${{ matrix.os == 'ubuntu-latest' }}
+        uses: coverallsapp/github-action@master
         with:
-          github-token: ${{ secrets.github_token }}
-          parallel: true
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          path-to-lcov: cov.lcov
   finish:
     needs: test
     runs-on: ubuntu-latest
