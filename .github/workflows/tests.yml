@@ -17,3 +17,19 @@ jobs:
           deno-version: ${{ matrix.deno }}
       - name: Test algorithms
         run: deno test
+      - name: Coveralls (parallel)
+        uses: coverallsapp/github-action@v1.1.1
+        env:
+          COVERALLS_FLAG_NAME: run-${{ matrix.test_number }}
+        with:
+          github-token: ${{ secrets.github_token }}
+          parallel: true
+  finish:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Coveralls finished
+        uses: coverallsapp/github-action@master
+        with:
+          github-token: ${{ secrets.github_token }}
+          parallel-finished: true
